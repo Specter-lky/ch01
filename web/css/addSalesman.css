@@ -1,0 +1,9 @@
+.msg{
+    margin-top: 15px;
+}
+.button{
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 22px;
+    width: 200px;
+}
