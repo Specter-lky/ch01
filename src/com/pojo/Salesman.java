@@ -57,6 +57,6 @@ public class Salesman {
 
     @Override
     public String toString(){
-        return "s_no:"+s_no+",s_name:"+s_name+",s_phone:"+s_phone+",s_adress:"+s_adress+",s_password"+s_password+"";
+        return "s_no:"+s_no+",s_name:"+s_name+",s_phone:"+s_phone+",s_adress:"+s_adress+",s_password:"+s_password+"";
     }
 }

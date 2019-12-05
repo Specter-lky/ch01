@@ -65,7 +65,7 @@
                             <ul class="dropdown-menu nav nav-pills nav-stacked">
                                 <li class="active"><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改信息</a></li>
                                 <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 头像更换</a></li>
-                                <li class="hrms_logout"><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 账号退出</a></li>
+                                <li class="hrms_logout"><a href="${pageContext.request.contextPath}/"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 账号退出</a></li>
                             </ul>
                         </li>
                     </ul><!-- /.nav navbar-nav navbar-right -->
@@ -87,6 +87,17 @@
                     <ul class="nav nav-pills nav-stacked" id="collapse_emp">
                         <li role="presentation"><a href="/sales/employee">员工信息</a></li>
                         <li role="presentation"><a href="#">员工新增</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked emp_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#" data-toggle="collapse" data-target="#collapse_kh">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_kh">
+                        <li role="presentation"><a href="#">客户信息</a></li>
+                        <li role="presentation"><a href="#">客户新增</a></li>
                     </ul>
                 </li>
             </ul>
@@ -112,23 +123,23 @@
                 <!-- 路径导航 -->
                 <div class="panel-heading">
                     <ol class="breadcrumb">
-                        <li><a href="#">员工管理</a></li>
+                        <li><a href="/sales/employee">员工管理</a></li>
                         <li class="active">员工新增</li>
                     </ol>
                 </div>
             </div><!-- /.panel panel-success -->
-            <form action="" method="post" style="text-align: center;">
+            <form action="/sales/addSales" method="post" style="text-align: center;">
                 <div>
-                    员工姓名：<input type="text" required="required">
+                    员工姓名：<input type="text" required="required" name="name">
                 </div>
                 <div class="msg">
-                    员工电话：<input type="text" required="required" onkeyup="this.value=this.value.replace(/\D/g, '')">
+                    员工电话：<input type="text" required="required" onkeyup="this.value=this.value.replace(/\D/g, '')" name="phone">
                 </div>
                 <div class="msg">
-                    员工地址：<input type="text" required="required">
+                    员工地址：<input type="text" required="required" name="adress">
                 </div>
                 <div class="msg">
-                    登录密码：<input type="password" required="required">
+                    登录密码：<input type="password" required="required" name="password">
                 </div>
                 <div class="msg">
                     <input type="submit" class="button" value="提交">
@@ -145,7 +156,7 @@
             <abbr title="Phone">P:</abbr> (123) 456-7890
         </address>
     </div><!-- /.hrms_footer -->
-
+    </div>
 </div><!-- /.container -->
 </body>
 </html>

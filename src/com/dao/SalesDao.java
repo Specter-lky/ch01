@@ -11,6 +11,7 @@ import java.util.List;
 public interface SalesDao {
     public Salesman login(Salesman salesman);
     public List<Salesman> selectAllSalesman();
-    public Salesman addSalesman(Salesman salesman);
-    public Salesman updateSalesman(Salesman salesman);
+    public Salesman selectOneSalesman(int sno);
+    public int addSalesman(Salesman salesman);
+    public int updateSalesman(Salesman salesman);
 }

@@ -35,7 +35,6 @@ public class LoginController {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String identity = request.getParameter("identity");
-        System.out.println(identity);
         if (username == null) {
             httpSession.setAttribute("error", "还没登录，请先登录");
             return "redirect:/index.jsp";
@@ -52,7 +51,7 @@ public class LoginController {
                 return "redirect:/index.jsp";
             } else {
                 if (identity.equals("销售管理员")) {
-                    return "smange/main";
+                    return "smanage/main";
                 }
                 else{
                     return "cmanage_main";

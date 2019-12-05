@@ -7,10 +7,13 @@
     <select id="selectAllSalesman" resultType="com.pojo.Salesman">
         select * from salesman
     </select>
+    <select id="selectOneSalesman" parameterType="int" resultType="com.pojo.Salesman">
+        select * from salesman where s_no=#{s_no}
+    </select>
     <insert id="addSalesman" parameterType="com.pojo.Salesman">
         insert into salesman(s_name, s_phone, s_adress,s_password) values (#{s_name},#{s_phone},#{s_adress},#{s_password})
     </insert>
     <update id="updateSalesman" parameterType="com.pojo.Salesman">
-        update salesman set s_name=#{s_name},s_phone=#{s_phone},s_adress=#{s_adress} where s_no=#{s_no} and s_password=#{s_password}
+        update salesman set s_name=#{s_name},s_phone=#{s_phone},s_adress=#{s_adress},s_password=#{s_password} where s_no=#{s_no}
     </update>
 </mapper>

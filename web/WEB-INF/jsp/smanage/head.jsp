@@ -61,7 +61,7 @@
                         <ul class="dropdown-menu nav nav-pills nav-stacked">
                             <li class="active"><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改信息</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 头像更换</a></li>
-                            <li class="hrms_logout"><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 账号退出</a></li>
+                            <li class="hrms_logout"><a href="${pageContext.request.contextPath}/"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 账号退出</a></li>
                         </ul>
                     </li>
                 </ul><!-- /.nav navbar-nav navbar-right -->
