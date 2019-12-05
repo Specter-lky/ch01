@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper .//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ClientDao">
+    <select id="selectAllSalesman" resultType="com.pojo.Client">
+        select * from client
+    </select>
+    <select id="selectOneSalesman" parameterType="int" resultType="com.pojo.Client">
+        select * from client where c_no=#{c_no}
+    </select>
+    <insert id="addSalesman" parameterType="com.pojo.Client">
+        insert into client(c_name, c_phone, c_adress) values (#{c_name},#{c_phone},#{c_adress}
+    </insert>
+    <update id="updateSalesman" parameterType="com.pojo.Client">
+        update client set c_name=#{c_name},c_phone=#{c_phone},c_adress=#{c_adress} where c_no=#{c_no}
+    </update>
+</mapper>
