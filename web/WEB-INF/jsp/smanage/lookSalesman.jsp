@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="com.pojo.Salesman"%>
+<%@ page import="javax.swing.*" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -96,8 +97,8 @@
                         <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_kh">
-                        <li role="presentation"><a href="#">客户信息</a></li>
-                        <li role="presentation"><a href="#">客户新增</a></li>
+                        <li role="presentation"><a href="/client/lookClient">客户信息</a></li>
+                        <li role="presentation"><a href="/client/add">客户新增</a></li>
                     </ul>
                 </li>
             </ul>
@@ -124,7 +125,15 @@
                 <div class="panel-heading">
                     <ol class="breadcrumb">
                         <li><a href="#">员工管理</a></li>
-                        <li class="active">员工信息</li>
+                        <li class="active">
+                            员工信息
+                        </li>
+                        <form action="/sales/one">
+                            <div>
+                                <input type="text" name="no" required="required" placeholder="输入需查找的员工编号" onkeyup="this.value=this.value.replace(/\D/g, '')">
+                                <button type="submit">查找</button>
+                            </div>
+                        </form>
                     </ol>
                 </div>
                 <!-- Table -->
@@ -140,7 +149,13 @@
                     <tbody>
                     <%
                         List<Salesman> list=(List)session.getAttribute("allsales");
-                        if(list!=null||list.size()!=0){
+                        if (list==null||list.size()==0){
+                            String msg = "暂无员工！";
+                            int type = JOptionPane.YES_NO_CANCEL_OPTION;
+                            String title = "信息提示";
+                            JOptionPane.showMessageDialog(null, msg, title, type);
+                        }
+                        else{
                             for(Salesman s : list){
                     %>
                     <tr>

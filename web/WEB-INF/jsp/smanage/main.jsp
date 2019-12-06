@@ -93,8 +93,8 @@
                         <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_cli">
-                        <li role="presentation"><a href="#">客户信息</a></li>
-                        <li role="presentation"><a href="#">客户新增</a></li>
+                        <li role="presentation"><a href="/client/lookClient">客户信息</a></li>
+                        <li role="presentation"><a href="/client/add">客户新增</a></li>
                     </ul>
                 </li>
             </ul>

@@ -1,4 +1,4 @@
-package controller.salesman;
+package controller.smanage;
 
 import com.dao.SalesDao;
 import com.pojo.Salesman;
@@ -17,15 +17,23 @@ import java.util.List;
 public class SalesController {
     @Resource
     private SalesDao salesDao;
-    @RequestMapping("/employee")
+    @RequestMapping("employee")
     public String employee(HttpServletRequest request, HttpServletResponse response){
         HttpSession session=request.getSession(true);
         List<Salesman> list=salesDao.selectAllSalesman();
         session.setAttribute("allsales",list);
         return "smanage/lookSalesman";
     }
+    @RequestMapping("one")
+    public String one(HttpServletRequest request, HttpServletResponse response){
+        int no=Integer.parseInt(request.getParameter("no"));
+        HttpSession session=request.getSession(true);
+        Salesman one=salesDao.selectOneSalesman(no);
+        session.setAttribute("one",one);
+        return "smanage/lookoneSalesman";
+    }
     @RequestMapping("add")
-    public String add(HttpServletRequest request, HttpServletResponse response){
+    public String add(){
         return "smanage/addSalesman";
     }
     @RequestMapping("addSales")

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/addSalesman.css">
+    <link rel="stylesheet" href="/css/add.css">
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -96,8 +96,8 @@
                         <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_kh">
-                        <li role="presentation"><a href="#">客户信息</a></li>
-                        <li role="presentation"><a href="#">客户新增</a></li>
+                        <li role="presentation"><a href="/client/lookClient">客户信息</a></li>
+                        <li role="presentation"><a href="/client/add">客户新增</a></li>
                     </ul>
                 </li>
             </ul>

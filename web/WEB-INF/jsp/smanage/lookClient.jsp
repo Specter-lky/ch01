@@ -1,5 +1,6 @@
 <%@ page import="com.pojo.Client" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="javax.swing.*" %><%--
   Created by IntelliJ IDEA.
   User: Specter
   Date: 2019/12/5
@@ -97,7 +98,7 @@
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_kh">
                         <li role="presentation"><a href="#">客户信息</a></li>
-                        <li role="presentation"><a href="#">客户新增</a></li>
+                        <li role="presentation"><a href="/client/add">客户新增</a></li>
                     </ul>
                 </li>
             </ul>
@@ -125,6 +126,12 @@
                     <ol class="breadcrumb">
                         <li><a href="#">客户管理</a></li>
                         <li class="active">客户信息</li>
+                        <form action="/client/lookoneClient">
+                            <div>
+                                <input type="text" name="no" required="required" placeholder="输入需查找的客户编号" onkeyup="this.value=this.value.replace(/\D/g, '')">
+                                <button type="submit">查找</button>
+                            </div>
+                        </form>
                     </ol>
                 </div>
                 <!-- Table -->
@@ -138,8 +145,14 @@
                     </thead>
                     <tbody>
                     <%
-                        List<Client> list=(List)session.getAttribute("allsales");
-                        if(list!=null||list.size()!=0){
+                        List<Client> list=(List)session.getAttribute("allClient");
+                        if (list==null||list.size()==0){
+                            String msg = "暂无客户！";
+                            int type = JOptionPane.YES_NO_CANCEL_OPTION;
+                            String title = "信息提示";
+                            JOptionPane.showMessageDialog(null, msg, title, type);
+                        }
+                        else{
                             for(Client c : list){
                     %>
                     <tr>
@@ -148,17 +161,12 @@
                         <td><%=c.getC_phone()%></td>
                         <td><%=c.getC_adress()%></td>
                         <td>
-                            <a href="#" role="button" class="btn btn-primary">编辑</a>
+                            <a href="/client/update?no=<%=c.getC_no()%>" role="button" class="btn btn-primary">编辑</a>
                         </td>
                     </tr>
                     <%
                             }
                         }
-                        else {
-                            %>
-                    <h2 style="text-align: center;">暂无客户</h2>
-                            <%
-                            }
                     %>
                     </tbody>
                 </table>

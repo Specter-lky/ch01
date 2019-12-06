@@ -31,9 +31,19 @@
                 <span class="glyphicon glyphicon-user" aria-hidden="true">员工管理</span>
             </a>
             <ul class="nav nav-pills nav-stacked" id="collapse_emp">
-                <li role="presentation"><a href="#">员工信息</a></li>
-                <li role="presentation"><a href="#">员工新增</a></li>
-                <li role="presentation"><a href="#">员工清零</a></li>
+                <li role="presentation"><a href="/sales/employee">员工信息</a></li>
+                <li role="presentation"><a href="/sales/update">员工新增</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav nav-pills nav-stacked emp_sidebar">
+        <li role="presentation" class="active">
+            <a href="#" data-toggle="collapse" data-target="#collapse_kh">
+                <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
+            </a>
+            <ul class="nav nav-pills nav-stacked" id="collapse_kh">
+                <li role="presentation"><a href="/client/lookClient">客户信息</a></li>
+                <li role="presentation"><a href="/client/add">客户新增</a></li>
             </ul>
         </li>
     </ul>
