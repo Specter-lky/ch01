@@ -136,7 +136,7 @@
                     员工电话：<input type="text" required="required" onkeyup="this.value=this.value.replace(/\D/g, '')" name="phone">
                 </div>
                 <div class="msg">
-                    员工地址：<input type="text" required="required" name="adress">
+                    员工住址：<input type="text" required="required" name="adress">
                 </div>
                 <div class="msg">
                     登录密码：<input type="password" required="required" name="password">
