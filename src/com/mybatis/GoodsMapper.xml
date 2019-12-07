@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper .//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.GoodsDao">
+    <select id="selectAllGoods" resultType="com.pojo.Goods">
+        select * from goods
+    </select>
+    <select id="selectOneGoods" parameterType="int" resultType="com.pojo.Goods">
+        select * from goods where g_no=#{g_no}
+    </select>
+    <insert id="addGoods" parameterType="com.pojo.Goods">
+        insert into goods(g_name,g_num) values (#{g_name},#{g_num})
+    </insert>
+    <update id="updateGoods" parameterType="com.pojo.Goods">
+        update goods set g_name=#{g_name},g_num=#{g_num} where g_no=#{g_no}
+    </update>
+</mapper>

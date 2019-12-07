@@ -31,8 +31,8 @@
                 <span class="glyphicon glyphicon-user" aria-hidden="true">员工管理</span>
             </a>
             <ul class="nav nav-pills nav-stacked" id="collapse_emp">
-                <li role="presentation"><a href="/sales/employee">员工信息</a></li>
-                <li role="presentation"><a href="/sales/update">员工新增</a></li>
+                <li role="presentation"><a href="#">员工信息</a></li>
+                <li role="presentation"><a href="#">员工新增</a></li>
             </ul>
         </li>
     </ul>
@@ -42,20 +42,20 @@
                 <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
             </a>
             <ul class="nav nav-pills nav-stacked" id="collapse_kh">
-                <li role="presentation"><a href="/client/lookClient">客户信息</a></li>
-                <li role="presentation"><a href="/client/add">客户新增</a></li>
+                <li role="presentation"><a href="#">客户信息</a></li>
+                <li role="presentation"><a href="#">客户新增</a></li>
             </ul>
         </li>
     </ul>
     <ul class="nav nav-pills nav-stacked dept_sidebar">
         <li role="presentation" class="active">
             <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
-                <span class="glyphicon glyphicon-cloud" aria-hidden="true">合同管理</span>
+                <span class="glyphicon glyphicon-cloud" aria-hidden="true">商品管理</span>
             </a>
             <ul class="nav nav-pills nav-stacked" id="collapse_dept">
-                <li role="presentation"><a href="#">合同信息</a></li>
-                <li role="presentation"><a href="#">合同新增</a></li>
-                <li role="presentation"><a href="#">合同清零</a></li>
+                <li role="presentation"><a href="/goods/lookGoods">商品信息</a></li>
+                <li role="presentation"><a href="/goods/add">商品新增</a></li>
+                <li role="presentation"><a href="#">商品清零</a></li>
             </ul>
         </li>
     </ul>

@@ -1,13 +1,13 @@
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.pojo.Goods" %>
+<%@ page import="javax.swing.*" %><%--
   Created by IntelliJ IDEA.
   User: Specter
-  Date: 2019/12/4
-  Time: 22:01
+  Date: 2019/12/7
+  Time: 22:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="com.pojo.Client"%>
-<%@ page import="javax.swing.*" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>查看单个客户</title>
+    <title>商品信息</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
@@ -86,8 +86,8 @@
                         <span class="glyphicon glyphicon-user" aria-hidden="true">员工管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_emp">
-                        <li role="presentation"><a href="/sales/employee">员工信息</a></li>
-                        <li role="presentation"><a href="/sales/add">员工新增</a></li>
+                        <li role="presentation"><a href="#">员工信息</a></li>
+                        <li role="presentation"><a href="#">员工新增</a></li>
                     </ul>
                 </li>
             </ul>
@@ -97,20 +97,20 @@
                         <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_kh">
-                        <li role="presentation"><a href="/client/lookClient">客户信息</a></li>
-                        <li role="presentation"><a href="/client/add">客户新增</a></li>
+                        <li role="presentation"><a href="#">客户信息</a></li>
+                        <li role="presentation"><a href="#">客户新增</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav nav-pills nav-stacked dept_sidebar">
                 <li role="presentation" class="active">
                     <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
-                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">合同管理</span>
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">商品管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept">
-                        <li role="presentation"><a href="#">合同信息</a></li>
-                        <li role="presentation"><a href="#">合同新增</a></li>
-                        <li role="presentation"><a href="#">合同清零</a></li>
+                        <li role="presentation"><a href="#">商品信息</a></li>
+                        <li role="presentation"><a href="/goods/add">商品新增</a></li>
+                        <li role="presentation"><a href="#">商品清零</a></li>
                     </ul>
                 </li>
             </ul>
@@ -124,47 +124,79 @@
                 <!-- 路径导航 -->
                 <div class="panel-heading">
                     <ol class="breadcrumb">
-                        <li><a href="/client/lookClient">客户管理</a></li>
-                        <li class="active">
-                            客户信息
-                        </li>
+                        <li><a href="#">商品管理</a></li>
+                        <li class="active">商品信息</li>
+                        <form action="/goods/lookoneGoods">
+                            <div>
+                                <input type="text" name="no" required="required" placeholder="输入需查找的商品编号" onkeyup="this.value=this.value.replace(/\D/g, '')">
+                                <button type="submit">查找</button>
+                            </div>
+                        </form>
                     </ol>
                 </div>
                 <!-- Table -->
                 <table class="table table-bordered table-hover" id="emp_table">
                     <thead>
-                    <th>客户编号</th>
-                    <th>客户姓名</th>
-                    <th>客户电话</th>
-                    <th>客户住址</th>
+                    <th>商品编号</th>
+                    <th>商品名称</th>
+                    <th>商品数量</th>
+                    <th>商品单价</th>
                     <th>操作</th>
                     </thead>
                     <tbody>
                     <%
-                        Client c=(Client) session.getAttribute("one");
-                        if(c==null) {
-                            String msg = "该客户不存在！";
+                        List<Goods> list=(List)session.getAttribute("allGoods");
+                        if (list==null||list.size()==0){
+                            String msg = "暂无商品！";
                             int type = JOptionPane.YES_NO_CANCEL_OPTION;
                             String title = "信息提示";
                             JOptionPane.showMessageDialog(null, msg, title, type);
-                            response.sendRedirect("http://localhost:8080/client/lookClient");
                         }
                         else{
+                            for(Goods g : list){
                     %>
                     <tr>
-                        <td><%=c.getC_no()%></td>
-                        <td><%=c.getC_name()%></td>
-                        <td><%=c.getC_phone()%></td>
-                        <td><%=c.getC_adress()%></td>
+                        <td><%=g.getG_no()%></td>
+                        <td><%=g.getG_name()%></td>
+                        <td><%=g.getG_num()%></td>
+                        <td><%=g.getG_price()%></td>
                         <td>
-                            <a href="/client/update?no=<%=c.getC_no()%>" role="button" class="btn btn-primary">编辑</a>
+                            <a href="#" role="button" class="btn btn-primary">编辑</a>
                         </td>
                     </tr>
                     <%
+                            }
                         }
                     %>
                     </tbody>
                 </table>
+
+                <div class="panel-body">
+                    <div class="table_items">
+                        当前第<span class="badge">1</span>页，共有<span class="badge">10</span>页，总记录数<span class="badge">100</span>条。
+                    </div>
+                    <nav aria-label="Page navigation" class="pull-right">
+                        <ul class="pagination">
+                            <li><a href="#">首页</a></li>
+                            <li class="disabled">
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">尾页</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div><!-- /.panel panel-success -->
         </div><!-- /.emp_info -->
 

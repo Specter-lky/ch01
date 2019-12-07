@@ -54,7 +54,7 @@ public class LoginController {
                     return "smanage/main";
                 }
                 else{
-                    return "cmanage_main";
+                    return "cmanage/main";
                 }
             }
         } else {

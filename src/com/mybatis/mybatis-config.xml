@@ -6,5 +6,7 @@
         <mapper resource="com/mybatis/UserMapper.xml"/>
         <mapper resource="com/mybatis/SalesmanMapper.xml"/>
         <mapper resource="com/mybatis/ClientMapper.xml"/>
+        <mapper resource="com/mybatis/GoodsMapper.xml"/>
+        <mapper resource="com/mybatis/ContractMapper.xml"/>
     </mappers>
 </configuration>

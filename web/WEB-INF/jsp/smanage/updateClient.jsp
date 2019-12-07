@@ -107,9 +107,9 @@
                         <span class="glyphicon glyphicon-cloud" aria-hidden="true">部门管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept">
-                        <li role="presentation"><a href="#">部门信息</a></li>
-                        <li role="presentation"><a href="#">部门新增</a></li>
-                        <li role="presentation"><a href="#">部门清零</a></li>
+                        <li role="presentation"><a href="#">合同信息</a></li>
+                        <li role="presentation"><a href="#">合同新增</a></li>
+                        <li role="presentation"><a href="#">合同清零</a></li>
                     </ul>
                 </li>
             </ul>
