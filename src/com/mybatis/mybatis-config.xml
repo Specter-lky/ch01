@@ -8,5 +8,6 @@
         <mapper resource="com/mybatis/ClientMapper.xml"/>
         <mapper resource="com/mybatis/GoodsMapper.xml"/>
         <mapper resource="com/mybatis/ContractMapper.xml"/>
+        <mapper resource="com/mybatis/OrdersMapper.xml"/>
     </mappers>
 </configuration>

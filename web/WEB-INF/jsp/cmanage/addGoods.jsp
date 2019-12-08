@@ -79,28 +79,6 @@
 
         <!-- 左侧栏 -->
         <div class="panel-group col-sm-2" id="hrms_sidebar_left" role="tablist" aria-multiselectable="true">
-            <ul class="nav nav-pills nav-stacked emp_sidebar">
-                <li role="presentation" class="active">
-                    <a href="#" data-toggle="collapse" data-target="#collapse_emp">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true">员工管理</span>
-                    </a>
-                    <ul class="nav nav-pills nav-stacked" id="collapse_emp">
-                        <li role="presentation"><a href="#">员工信息</a></li>
-                        <li role="presentation"><a href="#">员工新增</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav nav-pills nav-stacked emp_sidebar">
-                <li role="presentation" class="active">
-                    <a href="#" data-toggle="collapse" data-target="#collapse_kh">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
-                    </a>
-                    <ul class="nav nav-pills nav-stacked" id="collapse_kh">
-                        <li role="presentation"><a href="#">客户信息</a></li>
-                        <li role="presentation"><a href="#">客户新增</a></li>
-                    </ul>
-                </li>
-            </ul>
             <ul class="nav nav-pills nav-stacked dept_sidebar">
                 <li role="presentation" class="active">
                     <a href="#"  data-toggle="collapse" data-target="#collapse_dept">

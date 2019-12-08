@@ -151,6 +151,7 @@
                             int type = JOptionPane.YES_NO_CANCEL_OPTION;
                             String title = "信息提示";
                             JOptionPane.showMessageDialog(null, msg, title, type);
+                            response.sendRedirect("http://localhost:8080/client/lookClient");
                         }
                         else{
                             for(Client c : list){
@@ -199,11 +200,7 @@
                 </div>
             </div><!-- /.panel panel-success -->
         </div><!-- /.emp_info -->
-
-
-
     </div><!-- /.hrms_body -->
-
 
     <!-- 尾部 -->
     <div class="hrms_footer" style="text-align: center;">

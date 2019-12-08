@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper .//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.ContractDao">
-
+    <select id="selectAllContract" resultType="com.pojo.Contract">
+        select * from contract
+    </select>
+    <select id="selectOneContract" parameterType="int" resultType="com.pojo.Contract">
+        select * from contract where ct_no=#{ct_no}
+    </select>
+    <insert id="addContract" parameterType="com.pojo.Contract">
+        insert into contract(s_no, s_name, c_no, c_name, ct_date, ct_status) values (#{s_no},#{s_name},#{c_no},#{c_name},#{ct_date},#{ct_status})
+    </insert>
+    <update id="updateContract" parameterType="com.pojo.Contract">
+        update contract set s_no=s#{s_no},s_name=#{s_name},c_no=#{c_no},c_name=#{c_name},ct_date=#{ct_date},ct_status=#{ct_status} where ct_no=#{ct_no}
+    </update>
 </mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper .//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.OrdersDao">
+    <select id="selectAllOrders" resultType="com.pojo.Orders">
+        select * from orders
+    </select>
+    <select id="selectOneOrders" parameterType="int" resultType="com.pojo.Orders">
+        select * from orders where o_no=#{o_no}
+    </select>
+    <insert id="addOrders" parameterType="com.pojo.Orders">
+        insert into orders(ct_no, g_no, g_name, o_num, g_price) values (#{ct_no},#{g_no},#{g_name},#{o_num},#{g_price})
+    </insert>
+    <update id="updateOrders" parameterType="com.pojo.Orders">
+        update orders set ct_no=#{ct_no},g_no=#{g_no},g_name=#{g_name},o_num=#{o_num},g_price=#{g_price} where o_no=#{o_no}
+    </update>
+</mapper>

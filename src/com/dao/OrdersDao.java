@@ -3,7 +3,7 @@ package com.dao;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Repository("contractDao")
+@Repository("ordersDao")
 @Mapper
-public interface ContractDao {
+public interface OrdersDao {
 }
