@@ -47,7 +47,8 @@ public class GoodsController {
         String name=request.getParameter("name");
         int num=Integer.parseInt(request.getParameter("num"));
         double price=Double.parseDouble(request.getParameter("price"));
-        Goods add=new Goods(1,name,num,price);
+        double bprice=Double.parseDouble(request.getParameter("bprice"));
+        Goods add=new Goods(1,name,num,price,bprice);
         goodsDao.addGoods(add);
         HttpSession session=request.getSession(true);
         List<Goods> list=goodsDao.selectAllGoods();

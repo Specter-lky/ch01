@@ -136,7 +136,10 @@
                     商品数量：<input type="text" required="required" name="num" onkeyup="this.value=this.value.replace(/\D/g, '')">
                 </div>
                 <div class="msg">
-                    商品单价：<input name=:"price" type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}">
+                    销售单价：<input name=:"price" type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}">
+                </div>
+                <div class="msg">
+                    进货单价：<input name=:"bprice" type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}">
                 </div>
                 <div class="msg">
                     <input type="submit" class="button" value="提交">

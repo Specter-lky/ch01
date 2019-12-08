@@ -135,7 +135,8 @@
                     <th>商品编号</th>
                     <th>商品名称</th>
                     <th>商品数量</th>
-                    <th>商品单价</th>
+                    <th>销售单价</th>
+                    <th>进货单价</th>
                     <th>操作</th>
                     </thead>
                     <tbody>
@@ -155,6 +156,7 @@
                         <td><%=g.getG_name()%></td>
                         <td><%=g.getG_num()%></td>
                         <td><%=g.getG_price()%></td>
+                        <td><%=g.getG_bprice()%></td>
                         <td>
                             <a href="" role="button" class="btn btn-primary">编辑</a>
                         </td>
