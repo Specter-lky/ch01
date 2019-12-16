@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dao.*;
 import com.pojo.*;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,7 +72,6 @@ public class ContractController {
     @RequestMapping("addContract")
     @ResponseBody
     public String addContract(@RequestBody String a) throws ParseException {
-        System.out.println(a);
         JSONObject jsonObject=JSON.parseObject(a);
         int ctno=Integer.parseInt(jsonObject.getString("ctno"));
         String sname=jsonObject.getString("sname");
@@ -95,7 +96,7 @@ public class ContractController {
                 o.setCt_no(ctno);
                 o.setG_price(goods.getG_price());
                 o.setO_status(0);
-            ordersDao.addOrders(o);
+                ordersDao.addOrders(o);
             }
         }
         return code;
@@ -111,7 +112,20 @@ public class ContractController {
         return "smanage/updateContract";
     }
     @RequestMapping("updateContract")
-    public String updateContract(){
-        return "";
+    @ResponseBody
+    public String updateContract(@RequestBody String a){
+        String code="";
+        System.out.println(a);
+        JSONObject jsonObject=JSON.parseObject(a);
+        String orders = jsonObject.getString("orders");
+        JSONArray jsonArray=JSONArray.parseArray(orders);
+        List<Orders> list=JSONObject.parseArray(orders,Orders.class);
+        for(Orders o:list){
+            Orders orders1=ordersDao.selectOneOrders(o.getO_no());
+            orders1.setO_num(o.getO_num());
+            ordersDao.updateOrders(orders1);
+            code="success";
+        }
+        return code;
     }
 }

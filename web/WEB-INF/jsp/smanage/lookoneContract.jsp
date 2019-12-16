@@ -76,17 +76,7 @@
             </div><!-- /.container-fluid -->
         </nav>
     </div><!-- /.hrms_brand_nav -->
-    <ul class="nav nav-pills nav-stacked dept_sidebar">
-        <li role="presentation" class="active">
-            <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
-                <span class="glyphicon glyphicon-cloud" aria-hidden="true">销售总额查看</span>
-            </a>
-            <ul class="nav nav-pills nav-stacked" id="collapse_sales">
-                <li role="presentation"><a href="/sales/lookGSales">商品销售总额</a></li>
-                <li role="presentation"><a href="/sales/lookCSales">客户销售总额</a></li>
-            </ul>
-        </li>
-    </ul>
+
     <!-- 中间部分（包括左边栏和员工/部门表单显示部分） -->
     <div class="hrms_body" style="position:relative; top:-15px;">
 
@@ -127,7 +117,17 @@
                     </ul>
                 </li>
             </ul>
-
+            <ul class="nav nav-pills nav-stacked dept_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">销售总额查看</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_sales">
+                        <li role="presentation"><a href="/sales/lookGSales">商品销售总额</a></li>
+                        <li role="presentation"><a href="/sales/lookCSales">客户销售总额</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div><!-- /.panel-group，#hrms_sidebar_left -->
 
         <!-- 中间员工表格信息展示内容 -->

@@ -185,7 +185,7 @@
                             <%
                                 if (c.getCt_status()==0){
                             %>
-                            <a href="/contract/update?cno=<%=c.getCt_no()%>" role="button" class="btn btn-primary">编辑</a>
+                            <a href="/contract/update?ctno=<%=c.getCt_no()%>" role="button" class="btn btn-primary">编辑</a>
                             <%}%>
                         </td>
                     </tr>
