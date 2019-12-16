@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface ClientDao {
     public List<Client> selectAllClient();
-    public Client selectOneClient(int cno);
+    public Client selectOneClient(String cname);
     public int addClient(Client client);
     public int updateClient(Client client);
 }

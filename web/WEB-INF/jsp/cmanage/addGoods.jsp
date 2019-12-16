@@ -87,11 +87,21 @@
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept">
                         <li role="presentation"><a href="/goods/lookGoods">商品信息</a></li>
                         <li role="presentation"><a href="#">商品新增</a></li>
-                        <li role="presentation"><a href="#">商品清零</a></li>
                     </ul>
                 </li>
             </ul>
-
+            <ul class="nav nav-pills nav-stacked dept_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">货物管理</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_dept1">
+                        <li role="presentation"><a href="/dlist/clookDList">发货</a></li>
+                        <li role="presentation"><a href="/slist/add">进货</a></li>
+                        <li role="presentation"><a href="/slist/looksList">进货单信息</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div><!-- /.panel-group，#hrms_sidebar_left -->
 
         <!-- 中间员工表格信息展示内容 -->
@@ -114,10 +124,13 @@
                     商品数量：<input type="text" required="required" name="num" onkeyup="this.value=this.value.replace(/\D/g, '')">
                 </div>
                 <div class="msg">
-                    销售单价：<input name=:"price" type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}">
+                    销售单价：<input name="price" type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}">
                 </div>
                 <div class="msg">
-                    进货单价：<input name=:"bprice" type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}">
+                    进货单价：<input name="bprice" type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}">
+                </div>
+                <div class="msg">
+                    商品阈值：<input name="threshold" type="text" onchange="if(/\D/.test(this.value)){alert('只能输入数字');this.value='';}">
                 </div>
                 <div class="msg">
                     <input type="submit" class="button" value="提交">

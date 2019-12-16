@@ -26,9 +26,15 @@ public class GoodsController {
     }
     @RequestMapping("lookoneGoods")
     public String lookoneGoods(HttpServletRequest request, HttpServletResponse response){
+        response.setContentType("text/html");
+        try {
+            request.setCharacterEncoding("utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         HttpSession session=request.getSession(true);
-        int no=Integer.parseInt(request.getParameter("no"));
-        Goods one=goodsDao.selectOneGoods(no);
+        String name=request.getParameter("name");
+        Goods one=goodsDao.selectOneGoods(name);
         session.setAttribute("one",one);
         return "cmanage/lookoneGoods";
     }
@@ -48,7 +54,8 @@ public class GoodsController {
         int num=Integer.parseInt(request.getParameter("num"));
         double price=Double.parseDouble(request.getParameter("price"));
         double bprice=Double.parseDouble(request.getParameter("bprice"));
-        Goods add=new Goods(1,name,num,price,bprice);
+        int threshold=Integer.parseInt(request.getParameter("threshold"));
+        Goods add=new Goods(name,num,price,bprice,threshold);
         goodsDao.addGoods(add);
         HttpSession session=request.getSession(true);
         List<Goods> list=goodsDao.selectAllGoods();

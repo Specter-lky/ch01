@@ -4,13 +4,13 @@
     <select id="selectAllClient" resultType="com.pojo.Client">
         select * from client
     </select>
-    <select id="selectOneClient" parameterType="int" resultType="com.pojo.Client">
-        select * from client where c_no=#{c_no}
+    <select id="selectOneClient" parameterType="String" resultType="com.pojo.Client">
+        select * from client where c_name=#{c_name}
     </select>
     <insert id="addClient" parameterType="com.pojo.Client">
         insert into client(c_name, c_phone, c_adress) values (#{c_name},#{c_phone},#{c_adress})
     </insert>
     <update id="updateClient" parameterType="com.pojo.Client">
-        update client set c_name=#{c_name},c_phone=#{c_phone},c_adress=#{c_adress} where c_no=#{c_no}
+        update client set c_phone=#{c_phone},c_adress=#{c_adress} where c_name=#{c_name}
     </update>
 </mapper>

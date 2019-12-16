@@ -9,5 +9,7 @@
         <mapper resource="com/mybatis/GoodsMapper.xml"/>
         <mapper resource="com/mybatis/ContractMapper.xml"/>
         <mapper resource="com/mybatis/OrdersMapper.xml"/>
+        <mapper resource="com/mybatis/DListMapper.xml"/>
+        <mapper resource="com/mybatis/SListMapper.xml"/>
     </mappers>
 </configuration>

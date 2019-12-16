@@ -104,13 +104,24 @@
                         <span class="glyphicon glyphicon-cloud" aria-hidden="true">合同管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept">
-                        <li role="presentation"><a href="#">合同信息</a></li>
-                        <li role="presentation"><a href="#">合同新增</a></li>
-                        <li role="presentation"><a href="#">合同清零</a></li>
+                        <li role="presentation"><a href="/contract/lookContract">合同信息</a></li>
+                        <li role="presentation"><a href="/contract/add">合同新增</a></li>
+                        <li role="presentation"><a href="/orders/lookOrders">查看订单</a></li>
+                        <li role="presentation"><a href="/dlist/lookDList">查看发货单</a></li>
                     </ul>
                 </li>
             </ul>
-
+            <ul class="nav nav-pills nav-stacked dept_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">销售总额查看</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_sales">
+                        <li role="presentation"><a href="/sales/lookGSales">商品销售总额</a></li>
+                        <li role="presentation"><a href="/sales/lookCSales">客户销售总额</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div><!-- /.panel-group，#hrms_sidebar_left -->
 
         <!-- 中心展示内容 -->

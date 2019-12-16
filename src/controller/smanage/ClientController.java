@@ -26,9 +26,15 @@ public class ClientController {
     @RequestMapping("lookoneClient")
     public String lookoneClient(HttpServletRequest request, HttpServletResponse response)
     {
+        response.setContentType("text/html");
+        try {
+            request.setCharacterEncoding("utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         HttpSession session=request.getSession(true);
-        int no=Integer.parseInt(request.getParameter("no"));
-        Client one=clientDao.selectOneClient(no);
+        String name=request.getParameter("name");
+        Client one=clientDao.selectOneClient(name);
         session.setAttribute("one",one);
         return "smanage/lookoneClient";
     }
@@ -48,7 +54,7 @@ public class ClientController {
         String name=request.getParameter("name");
         String phone=request.getParameter("phone");
         String adress=request.getParameter("adress");
-        Client add=new Client(1,name,phone,adress);
+        Client add=new Client(name,phone,adress);
         clientDao.addClient(add);
         HttpSession session=request.getSession(true);
         List<Client> list=clientDao.selectAllClient();
@@ -59,9 +65,15 @@ public class ClientController {
     @RequestMapping("update")
     public String update(HttpServletRequest request, HttpServletResponse response)
     {
+        response.setContentType("text/html");
+        try {
+            request.setCharacterEncoding("utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         HttpSession session=request.getSession(true);
-        int no=Integer.parseInt(request.getParameter("no"));
-        Client client=clientDao.selectOneClient(no);
+        String name=request.getParameter("name");
+        Client client=clientDao.selectOneClient(name);
         session.setAttribute("client",client);
         return "smanage/updateClient";
     }
@@ -74,11 +86,10 @@ public class ClientController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        int no=Integer.parseInt(request.getParameter("no"));
         String name=request.getParameter("name");
         String phone=request.getParameter("phone");
         String adress=request.getParameter("adress");
-        Client update=new Client(no,name,phone,adress);
+        Client update=new Client(name,phone,adress);
         clientDao.updateClient(update);
         HttpSession session=request.getSession(true);
         List<Client> list=clientDao.selectAllClient();

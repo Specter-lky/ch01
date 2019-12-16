@@ -823,329 +823,304 @@
     <table id="210" parent="2" name="salesman"/>
     <table id="211" parent="2" name="stock_list"/>
     <table id="212" parent="2" name="user"/>
-    <column id="213" parent="205" name="c_no">
+    <column id="213" parent="205" name="c_name">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="214" parent="205" name="c_name">
+    <column id="214" parent="205" name="c_phone">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="215" parent="205" name="c_phone">
+    <column id="215" parent="205" name="c_adress">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="205" name="c_adress">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="217" parent="205" name="PRIMARY">
+    <key id="216" parent="205" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>c_no</ColNames>
+      <ColNames>c_name</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="218" parent="206" name="ct_no">
+    <column id="217" parent="206" name="ct_no">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="219" parent="206" name="s_no">
+    <column id="218" parent="206" name="s_name">
       <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="220" parent="206" name="s_name">
+    <column id="219" parent="206" name="c_name">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="221" parent="206" name="c_no">
+    <column id="220" parent="206" name="ct_date">
       <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="222" parent="206" name="c_name">
-      <Position>5</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="223" parent="206" name="ct_date">
-      <Position>6</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="224" parent="206" name="ct_status">
-      <Position>7</Position>
+    <column id="221" parent="206" name="ct_status">
+      <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="225" parent="206" name="s_no">
-      <ColNames>s_no</ColNames>
+    <index id="222" parent="206" name="s_name">
+      <ColNames>s_name</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="226" parent="206" name="c_no">
-      <ColNames>c_no</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="227" parent="206" name="PRIMARY">
+    <key id="223" parent="206" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ct_no</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="228" parent="207" name="dl_no">
+    <column id="224" parent="207" name="dl_no">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="229" parent="207" name="o_no">
+    <column id="225" parent="207" name="o_no">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="230" parent="207" name="g_no">
+    <column id="226" parent="207" name="g_name">
       <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="227" parent="207" name="g_price">
+      <Position>4</Position>
+      <DataType>double|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="228" parent="207" name="dl_num">
+      <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="231" parent="207" name="g_name">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="232" parent="207" name="g_price">
-      <Position>5</Position>
-      <DataType>double|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="233" parent="207" name="dl_num">
+    <column id="229" parent="207" name="dl_status">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="207" name="dl_status">
+    <column id="230" parent="207" name="dl_place">
       <Position>7</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="207" name="dl_total">
-      <Position>8</Position>
-      <DataType>double|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="236" parent="207" name="o_no">
+    <index id="231" parent="207" name="o_no">
       <ColNames>o_no</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="237" parent="207" name="g_no">
-      <ColNames>g_no</ColNames>
+    <index id="232" parent="207" name="g_name">
+      <ColNames>g_name</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="238" parent="207" name="PRIMARY">
+    <key id="233" parent="207" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>dl_no
 o_no
-g_no</ColNames>
+g_name</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="239" parent="208" name="g_no">
+    <column id="234" parent="208" name="g_name">
       <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="240" parent="208" name="g_name">
-      <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="241" parent="208" name="g_num">
-      <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="208" name="g_price">
-      <Position>4</Position>
-      <DataType>double(11,4 digit)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="243" parent="208" name="g_bprice">
-      <Position>5</Position>
-      <DataType>double(11,4 digit)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="244" parent="208" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>g_no</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="245" parent="209" name="o_no">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="246" parent="209" name="ct_no">
+    <column id="235" parent="208" name="g_num">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="209" name="g_no">
+    <column id="236" parent="208" name="g_price">
       <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="248" parent="209" name="g_name">
-      <Position>4</Position>
-      <DataType>varchar(20)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="249" parent="209" name="o_num">
-      <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="250" parent="209" name="g_price">
-      <Position>6</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="251" parent="209" name="ct_no">
-      <ColNames>ct_no</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="252" parent="209" name="g_no">
-      <ColNames>g_no</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="253" parent="209" name="PRIMARY">
+    <column id="237" parent="208" name="g_bprice">
+      <Position>4</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="238" parent="208" name="g_threshold">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="239" parent="208" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>o_no
-ct_no
-g_no</ColNames>
+      <ColNames>g_name</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="254" parent="210" name="s_no">
+    <column id="240" parent="209" name="o_no">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="210" name="s_name">
+    <column id="241" parent="209" name="ct_no">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="242" parent="209" name="g_name">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="209" name="o_num">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="244" parent="209" name="g_price">
+      <Position>5</Position>
+      <DataType>double|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="245" parent="209" name="o_status">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="246" parent="209" name="ct_no">
+      <ColNames>ct_no</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="247" parent="209" name="g_name">
+      <ColNames>g_name</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="248" parent="209" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>o_no
+ct_no
+g_name</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="249" parent="210" name="s_no">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="250" parent="210" name="s_name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="210" name="s_phone">
+    <column id="251" parent="210" name="s_phone">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="210" name="s_adress">
+    <column id="252" parent="210" name="s_adress">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="210" name="s_password">
+    <column id="253" parent="210" name="s_password">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="259" parent="210" name="PRIMARY">
+    <index id="254" parent="210" name="s_name">
+      <ColNames>s_name</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="255" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>s_no</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="260" parent="211" name="sl_no">
+    <key id="256" parent="210" name="s_name">
+      <ColNames>s_name</ColNames>
+      <UnderlyingIndexName>s_name</UnderlyingIndexName>
+    </key>
+    <column id="257" parent="211" name="sl_no">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="211" name="g_no">
+    <column id="258" parent="211" name="g_name">
       <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="262" parent="211" name="g_name">
-      <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="211" name="sl_num">
-      <Position>4</Position>
+    <column id="259" parent="211" name="sl_num">
+      <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="211" name="sl_price">
-      <Position>5</Position>
+    <column id="260" parent="211" name="sl_price">
+      <Position>4</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="211" name="sl_status">
-      <Position>6</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="266" parent="211" name="g_no">
-      <ColNames>g_no</ColNames>
+    <index id="261" parent="211" name="g_name">
+      <ColNames>g_name</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="267" parent="211" name="PRIMARY">
+    <key id="262" parent="211" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sl_no
-g_no</ColNames>
+g_name</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="268" parent="212" name="username">
+    <column id="263" parent="212" name="username">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="212" name="password">
+    <column id="264" parent="212" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="212" name="identity">
+    <column id="265" parent="212" name="identity">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="271" parent="212" name="PRIMARY">
+    <key id="266" parent="212" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Primary>1</Primary>

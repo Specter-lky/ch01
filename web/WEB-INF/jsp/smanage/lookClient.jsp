@@ -108,13 +108,24 @@
                         <span class="glyphicon glyphicon-cloud" aria-hidden="true">合同管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept">
-                        <li role="presentation"><a href="#">合同信息</a></li>
-                        <li role="presentation"><a href="#">合同新增</a></li>
-                        <li role="presentation"><a href="#">合同清零</a></li>
+                        <li role="presentation"><a href="/contract/lookContract">合同信息</a></li>
+                        <li role="presentation"><a href="/contract/add">合同新增</a></li>
+                        <li role="presentation"><a href="/orders/lookOrders">查看订单</a></li>
+                        <li role="presentation"><a href="/dlist/lookDList">查看发货单</a></li>
                     </ul>
                 </li>
             </ul>
-
+            <ul class="nav nav-pills nav-stacked dept_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">销售总额查看</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_sales">
+                        <li role="presentation"><a href="/sales/lookGSales">商品销售总额</a></li>
+                        <li role="presentation"><a href="/sales/lookCSales">客户销售总额</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div><!-- /.panel-group，#hrms_sidebar_left -->
 
         <!-- 中间员工表格信息展示内容 -->
@@ -128,7 +139,7 @@
                         <li class="active">客户信息</li>
                         <form action="/client/lookoneClient">
                             <div>
-                                <input type="text" name="no" required="required" placeholder="输入需查找的客户编号" onkeyup="this.value=this.value.replace(/\D/g, '')">
+                                <input type="text" name="name" required="required" placeholder="输入需查找的客户姓名">
                                 <button type="submit">查找</button>
                             </div>
                         </form>
@@ -137,7 +148,6 @@
                 <!-- Table -->
                 <table class="table table-bordered table-hover" id="emp_table">
                     <thead>
-                    <th>客户编号</th>
                     <th>客户姓名</th>
                     <th>客户电话</th>
                     <th>客户住址</th>
@@ -151,18 +161,16 @@
                             int type = JOptionPane.YES_NO_CANCEL_OPTION;
                             String title = "信息提示";
                             JOptionPane.showMessageDialog(null, msg, title, type);
-                            response.sendRedirect("http://localhost:8080/client/lookClient");
                         }
                         else{
                             for(Client c : list){
                     %>
                     <tr>
-                        <td><%=c.getC_no()%></td>
                         <td><%=c.getC_name()%></td>
                         <td><%=c.getC_phone()%></td>
                         <td><%=c.getC_adress()%></td>
                         <td>
-                            <a href="/client/update?no=<%=c.getC_no()%>" role="button" class="btn btn-primary">编辑</a>
+                            <a href="/client/update?name=<%=c.getC_name()%>" role="button" class="btn btn-primary">编辑</a>
                         </td>
                     </tr>
                     <%

@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface GoodsDao {
     public List<Goods> selectAllGoods();
-    public Goods selectOneGoods(int gno);
+    public Goods selectOneGoods(String gname);
     public int addGoods(Goods goods);
     public int updateGoods(Goods goods);
 }

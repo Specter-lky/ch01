@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper .//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.DListDao">
+    <select id="selectAllDList" resultType="com.pojo.DList">
+        select * from deliver_list
+    </select>
+    <select id="selectOrders" parameterType="int" resultType="com.pojo.DList">
+        select * from deliver_list where o_no=#{o_no}
+    </select>
+    <select id="selectoneDList" parameterType="int" resultType="com.pojo.DList">
+        select * from deliver_list where dl_no=#{dl_no}
+    </select>
+    <insert id="addDList" parameterType="com.pojo.DList">
+        insert into deliver_list(o_no, g_name,g_price,dl_num, dl_status,dl_place) values (#{o_no},#{g_name},#{g_price},#{dl_num},#{dl_status},#{dl_place})
+    </insert>
+    <update id="updateDList" parameterType="com.pojo.DList">
+        update deliver_list set o_no=#{o_no},g_name=#{g_name},g_price=#{g_price},dl_num=#{dl_num},dl_status=#{dl_status} where dl_no=#{dl_no}
+    </update>
+</mapper>

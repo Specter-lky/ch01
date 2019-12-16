@@ -7,10 +7,13 @@
     <select id="selectOneContract" parameterType="int" resultType="com.pojo.Contract">
         select * from contract where ct_no=#{ct_no}
     </select>
+    <select id="selectSalesContract" parameterType="String" resultType="com.pojo.Contract">
+        select * from contract where s_name=#{s_name}
+    </select>
     <insert id="addContract" parameterType="com.pojo.Contract">
-        insert into contract(s_no, s_name, c_no, c_name, ct_date, ct_status) values (#{s_no},#{s_name},#{c_no},#{c_name},#{ct_date},#{ct_status})
+        insert into contract(ct_no,s_name,c_name, ct_date, ct_status) values (#{ct_no},#{s_name},#{c_name},#{ct_date,jdbcType=DATE},#{ct_status})
     </insert>
     <update id="updateContract" parameterType="com.pojo.Contract">
-        update contract set s_no=s#{s_no},s_name=#{s_name},c_no=#{c_no},c_name=#{c_name},ct_date=#{ct_date},ct_status=#{ct_status} where ct_no=#{ct_no}
+        update contract set s_name=#{s_name},c_name=#{c_name},ct_date=#{ct_date,jdbcType=DATE},ct_status=#{ct_status} where ct_no=#{ct_no}
     </update>
 </mapper>

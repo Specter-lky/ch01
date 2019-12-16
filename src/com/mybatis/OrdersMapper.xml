@@ -7,10 +7,25 @@
     <select id="selectOneOrders" parameterType="int" resultType="com.pojo.Orders">
         select * from orders where o_no=#{o_no}
     </select>
+    <select id="selectContractOrders" parameterType="int" resultType="com.pojo.Orders">
+        select * from orders where ct_no=#{ct_no}
+    </select>
     <insert id="addOrders" parameterType="com.pojo.Orders">
-        insert into orders(ct_no, g_no, g_name, o_num, g_price) values (#{ct_no},#{g_no},#{g_name},#{o_num},#{g_price})
+        insert into orders(ct_no, g_name, o_num, g_price,o_status) values (#{ct_no},#{g_name},#{o_num},#{g_price},#{o_status})
     </insert>
     <update id="updateOrders" parameterType="com.pojo.Orders">
-        update orders set ct_no=#{ct_no},g_no=#{g_no},g_name=#{g_name},o_num=#{o_num},g_price=#{g_price} where o_no=#{o_no}
+        update orders set ct_no=#{ct_no},g_name=#{g_name},o_num=#{o_num},g_price=#{g_price},o_status=#{o_status} where o_no=#{o_no}
     </update>
+    <resultMap id="OrdersAndDList" type="com.pojo.Orders">
+        <id property="o_no" column="o_no"/>
+        <result column="ct_no" property="ct_no"/>
+        <result column="g_name" property="g_name"/>
+        <result column="o_num" property="o_num"/>
+        <result column="g_price" property="g_price"/>
+        <result column="o_status" property="o_status"/>
+        <collection property="dLists" ofType="com.pojo.DList" column="o_no" select="com.dao.DListDao.selectContractOrders"/>
+    </resultMap>
+    <select id="selectOrdersAndDList" parameterType="int" resultMap="OrdersAndDList">
+        select * from orders where o_no=#{o_no}
+    </select>
 </mapper>

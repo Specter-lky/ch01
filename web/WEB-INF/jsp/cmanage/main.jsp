@@ -84,7 +84,18 @@
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept">
                         <li role="presentation"><a href="/goods/lookGoods">商品信息</a></li>
                         <li role="presentation"><a href="/goods/add">商品新增</a></li>
-                        <li role="presentation"><a href="#">商品清零</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked dept_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">货物管理</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_dept1">
+                        <li role="presentation"><a href="/dlist/clookDList">发货</a></li>
+                        <li role="presentation"><a href="/slist/add">进货</a></li>
+                        <li role="presentation"><a href="/slist/looksList">进货单信息</a></li>
                     </ul>
                 </li>
             </ul>

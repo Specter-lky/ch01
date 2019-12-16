@@ -4,13 +4,13 @@
     <select id="selectAllGoods" resultType="com.pojo.Goods">
         select * from goods
     </select>
-    <select id="selectOneGoods" parameterType="int" resultType="com.pojo.Goods">
-        select * from goods where g_no=#{g_no}
+    <select id="selectOneGoods" parameterType="String" resultType="com.pojo.Goods">
+        select * from goods where g_name=#{g_name}
     </select>
     <insert id="addGoods" parameterType="com.pojo.Goods">
-        insert into goods(g_name,g_num,g_price,g_bprice) values (#{g_name},#{g_num},#{g_price},#{g_bprice})
+        insert into goods(g_name,g_num,g_price,g_bprice,g_threshold) values (#{g_name},#{g_num},#{g_price},#{g_bprice},#{g_threshold})
     </insert>
     <update id="updateGoods" parameterType="com.pojo.Goods">
-        update goods set g_name=#{g_name},g_num=#{g_num} where g_no=#{g_no}
+        update goods set g_num=#{g_num},g_price=#{g_price},g_bprice=#{g_bprice},g_threshold=#{g_threshold} where g_name=#{g_name}
     </update>
 </mapper>

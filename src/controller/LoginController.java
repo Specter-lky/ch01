@@ -65,7 +65,8 @@ public class LoginController {
                 return "redirect:/index.jsp";
             }
             else{
-                return "spersonal_main";
+                httpSession.setAttribute("sno",no);
+                return "spersonal/main";
             }
         }
     }

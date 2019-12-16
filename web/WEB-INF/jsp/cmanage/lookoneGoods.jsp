@@ -87,11 +87,21 @@
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept">
                         <li role="presentation"><a href="/goods/lookGoods">商品信息</a></li>
                         <li role="presentation"><a href="/goods/add">商品新增</a></li>
-                        <li role="presentation"><a href="#">商品清零</a></li>
                     </ul>
                 </li>
             </ul>
-
+            <ul class="nav nav-pills nav-stacked dept_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">货物管理</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_dept1">
+                        <li role="presentation"><a href="/dlist/clookDList">发货</a></li>
+                        <li role="presentation"><a href="/slist/add">进货</a></li>
+                        <li role="presentation"><a href="/slist/looksList">进货单信息</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div><!-- /.panel-group，#hrms_sidebar_left -->
 
         <!-- 中间员工表格信息展示内容 -->
@@ -110,12 +120,11 @@
                 <!-- Table -->
                 <table class="table table-bordered table-hover" id="emp_table">
                     <thead>
-                    <th>商品编号</th>
                     <th>商品名称</th>
                     <th>商品数量</th>
                     <th>销售单价</th>
                     <th>进货单价</th>
-                    <th>操作</th>
+                    <th>商品阈值</th>
                     </thead>
                     <tbody>
                     <%
@@ -130,14 +139,11 @@
                         else{
                     %>
                     <tr>
-                        <td><%=g.getG_no()%></td>
                         <td><%=g.getG_name()%></td>
                         <td><%=g.getG_num()%></td>
                         <td><%=g.getG_price()%></td>
                         <td><%=g.getG_bprice()%></td>
-                        <td>
-                            <a href="" role="button" class="btn btn-primary">编辑</a>
-                        </td>
+                        <td><%=g.getG_threshold()%></td>
                     </tr>
                     <%
                         }

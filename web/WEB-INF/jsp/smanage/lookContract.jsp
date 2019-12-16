@@ -1,6 +1,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="javax.swing.*" %>
-<%@ page import="com.pojo.Contract" %><%--
+<%@ page import="com.pojo.Contract" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.text.DateFormat" %><%--
   Created by IntelliJ IDEA.
   User: Specter
   Date: 2019/12/5
@@ -109,12 +111,23 @@
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept">
                         <li role="presentation"><a href="#">合同信息</a></li>
-                        <li role="presentation"><a href="#">合同新增</a></li>
-                        <li role="presentation"><a href="#">合同清零</a></li>
+                        <li role="presentation"><a href="/contract/add">合同新增</a></li>
+                        <li role="presentation"><a href="/orders/lookOrders">查看订单</a></li>
+                        <li role="presentation"><a href="/dlist/lookDList">查看发货单</a></li>
                     </ul>
                 </li>
             </ul>
-
+            <ul class="nav nav-pills nav-stacked dept_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">销售总额查看</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_sales">
+                        <li role="presentation"><a href="/sales/lookGSales">商品销售总额</a></li>
+                        <li role="presentation"><a href="/sales/lookCSales">客户销售总额</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div><!-- /.panel-group，#hrms_sidebar_left -->
 
         <!-- 中间员工表格信息展示内容 -->
@@ -124,11 +137,11 @@
                 <!-- 路径导航 -->
                 <div class="panel-heading">
                     <ol class="breadcrumb">
-                        <li><a href="#">客户管理</a></li>
-                        <li class="active">客户信息</li>
-                        <form action="/client/lookoneClient">
+                        <li><a href="#">合同管理</a></li>
+                        <li class="active">合同信息</li>
+                        <form action="/contract/lookoneContract">
                             <div>
-                                <input type="text" name="no" required="required" placeholder="输入需查找的客户编号" onkeyup="this.value=this.value.replace(/\D/g, '')">
+                                <input type="text" name="ctno" required="required" placeholder="输入需查找的合同编号" onkeyup="this.value=this.value.replace(/\D/g, '')">
                                 <button type="submit">查找</button>
                             </div>
                         </form>
@@ -137,10 +150,11 @@
                 <!-- Table -->
                 <table class="table table-bordered table-hover" id="emp_table">
                     <thead>
-                    <th>客户编号</th>
+                    <th>合同编号</th>
+                    <th>销售员姓名</th>
                     <th>客户姓名</th>
-                    <th>客户电话</th>
-                    <th>客户住址</th>
+                    <th>签订日期</th>
+                    <th>履行状态</th>
                     <th>操作</th>
                     </thead>
                     <tbody>
@@ -154,14 +168,25 @@
                         }
                         else{
                             for(Contract c : list){
+                                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                                String str1 = format.format(c.getCt_date());
+                                String status="";
+                                if (c.getCt_status()==0)status="未履行";
+                                else if(c.getCt_status()==1)status="履行中";
+                                else status="已完成";
                     %>
                     <tr>
-                        <td><%=c.getC_no()%></td>
+                        <td><%=c.getCt_no()%></td>
+                        <td><%=c.getS_name()%></td>
                         <td><%=c.getC_name()%></td>
-                        <td><%=c.getC_phone()%></td>
-                        <td><%=c.getC_adress()%></td>
+                        <td><%=str1%></td>
+                        <td><%=status%></td>
                         <td>
-                            <a href="/client/update?no=<%=c.getC_no()%>" role="button" class="btn btn-primary">编辑</a>
+                            <%
+                                if (c.getCt_status()==0){
+                            %>
+                            <a href="/contract/update?cno=<%=c.getCt_no()%>" role="button" class="btn btn-primary">编辑</a>
+                            <%}%>
                         </td>
                     </tr>
                     <%

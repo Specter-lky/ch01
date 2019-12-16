@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper .//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.SListDao">
+    <select id="selectAllSList" resultType="com.pojo.SList">
+        select * from stock_list
+    </select>
+    <select id="selectOneSList" parameterType="int" resultType="com.pojo.SList">
+        select * from stock_list where sl_no=#{sl_no}
+    </select>
+    <insert id="addSList" parameterType="com.pojo.SList">
+        insert into stock_list(g_name, sl_num, sl_price) values (#{g_name},#{sl_num},#{sl_price})
+    </insert>
+</mapper>
