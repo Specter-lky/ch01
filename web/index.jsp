@@ -24,7 +24,17 @@ if (session.getAttribute("error")!=null)
 %>
   <div class="column">
   <h2>公司销售管理系统</h2>
-  <form action="${pageContext.request.contextPath}/hi/login" method="post">
+    <script>
+    function submit_from() {
+      var $identity=$("select[name='identity']").val();
+      if ($identity==""){
+        alert("请选择登录身份");
+        return false;
+      }
+      return true;
+    }
+  </script>
+  <form action="/hi/login" method="post" onsubmit="return submit_from()">
     <div style="margin-top:25px;position:relative;">
       <input name="username" id="login_name" value="" type="text" class="txt" required="true" placeholder="请输入用户名">
     </div>
@@ -33,7 +43,7 @@ if (session.getAttribute("error")!=null)
     </div>
     <div style="margin-top:25px;position: relative;text-align: left;padding: 0px 25px;">
       <select name="identity">
-        <option value="" selected="selected">请选择登录身份</option>
+        <option value="">请选择登录身份</option>
         <option value="销售管理员">销售管理员</option>
         <option value="仓库管理员">仓库管理员</option>
         <option value="销售人员">销售人员</option>
@@ -44,5 +54,6 @@ if (session.getAttribute("error")!=null)
     </div>
   </form>
   </div>
+
   </body>
 </html>
