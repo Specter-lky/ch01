@@ -24,22 +24,12 @@ if (session.getAttribute("error")!=null)
 %>
   <div class="column">
   <h2>公司销售管理系统</h2>
-    <script>
-    function submit_from() {
-      var $identity=$("select[name='identity']").val();
-      if ($identity==""){
-        alert("请选择登录身份");
-        return false;
-      }
-      return true;
-    }
-  </script>
   <form action="/hi/login" method="post" onsubmit="return submit_from()">
     <div style="margin-top:25px;position:relative;">
-      <input name="username" id="login_name" value="" type="text" class="txt" required="true" placeholder="请输入用户名">
+      <input name="username" id="login_name" type="text" class="txt" required="required" placeholder="请输入用户名">
     </div>
     <div style="margin-top:25px;position: relative;">
-      <input name="password" id="login_password" value="" class="txt" type="password" required="true" placeholder="请输入密码">
+      <input name="password" id="login_password" class="txt" type="password" required="required" placeholder="请输入密码">
     </div>
     <div style="margin-top:25px;position: relative;text-align: left;padding: 0px 25px;">
       <select name="identity">
@@ -54,6 +44,5 @@ if (session.getAttribute("error")!=null)
     </div>
   </form>
   </div>
-
   </body>
 </html>

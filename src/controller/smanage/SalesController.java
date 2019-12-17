@@ -58,13 +58,21 @@ public class SalesController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        HttpSession session=request.getSession(true);
         String name=request.getParameter("name");
         String phone=request.getParameter("phone");
         String adress=request.getParameter("adress");
         String password=request.getParameter("password");
+        List<Salesman> salesmen=salesDao.selectAllSalesman();
+        for (Salesman s : salesmen)
+        {
+            if (s.getS_name().equals(name)){
+                session.setAttribute("error","该员工已存在");
+                return "smanage/addSalesman";
+            }
+        }
         Salesman addsale=new Salesman(1,name,phone,adress,password);
         salesDao.addSalesman(addsale);
-        HttpSession session=request.getSession(true);
         List<Salesman> list=salesDao.selectAllSalesman();
         session.setAttribute("allsales",list);
         return "smanage/lookSalesman";

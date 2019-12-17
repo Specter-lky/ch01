@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">某公司</a>
+                    <a class="navbar-brand" href="#">XXX公司</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="hrms-navbar-collapse-1">

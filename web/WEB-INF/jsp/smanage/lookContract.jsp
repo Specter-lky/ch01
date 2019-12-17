@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>客户信息</title>
+    <title>合同信息</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
@@ -41,33 +41,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">XXX公司LOGO</a>
+                    <a class="navbar-brand" href="#">XXX公司</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="hrms-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">公司介绍 <span class="sr-only">(current)</span>  </a>
-                        </li>
-                        <li><a href="#">人力资源部</a></li>
-                        <li><a href="#">请假申请</a></li>
-                        <li><a href="#">报销申请</a></li>
-                        <li><a href="#">出勤记录</a></li>
-                    </ul>
-
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="站内搜索">
-                        </div>
-                        <button type="submit" class="btn btn-default">搜索</button>
-                    </form>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">账号管理 <span class="caret"></span></a>
                             <ul class="dropdown-menu nav nav-pills nav-stacked">
-                                <li class="active"><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改信息</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 头像更换</a></li>
                                 <li class="hrms_logout"><a href="${pageContext.request.contextPath}/"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 账号退出</a></li>
                             </ul>
                         </li>
@@ -186,11 +168,16 @@
                                 if (c.getCt_status()==0){
                             %>
                             <a href="/contract/update?ctno=<%=c.getCt_no()%>" role="button" class="btn btn-primary">编辑</a>
-                            <%}%>
+                            <%}
+                                else{
+                            %>
+                            <a href="#" role="button" class="btn btn-primary">详情</a>
+                            <%}
+                            }
+                            %>
                         </td>
                     </tr>
                     <%
-                            }
                         }
                     %>
                     </tbody>

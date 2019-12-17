@@ -26,6 +26,15 @@
     </script>
 </head>
 <body>
+<%
+    String error=(String) session.getAttribute("error");
+    if (error!=null){
+%>
+<script>alert("<%=error%>");</script>
+<%
+    }
+    session.setAttribute("error",null);
+%>
 <div class="hrms_container">
     <!-- 导航条 -->
     <div class="hrms_brand_nav">

@@ -51,15 +51,21 @@ public class ClientController {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        HttpSession session=request.getSession(true);
         String name=request.getParameter("name");
         String phone=request.getParameter("phone");
         String adress=request.getParameter("adress");
-        Client add=new Client(name,phone,adress);
-        clientDao.addClient(add);
-        HttpSession session=request.getSession(true);
-        List<Client> list=clientDao.selectAllClient();
-        session.setAttribute("allClient",list);
-        return "smanage/lookClient";
+        if(clientDao.selectOneClient(name)!=null){
+            session.setAttribute("error","该客户已存在");
+            return "smanage/addClient";
+        }
+        else {
+            Client add=new Client(name,phone,adress);
+            clientDao.addClient(add);
+            List<Client> list=clientDao.selectAllClient();
+            session.setAttribute("allClient",list);
+            return "smanage/lookClient";
+        }
     }
 
     @RequestMapping("update")

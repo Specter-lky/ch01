@@ -26,6 +26,15 @@
     </script>
 </head>
 <body>
+<%
+    String error=(String) session.getAttribute("error");
+    if (error!=null){
+%>
+<script>alert("<%=error%>");</script>
+<%
+    }
+    session.setAttribute("error",null);
+%>
 <div class="hrms_container">
     <!-- 导航条 -->
     <div class="hrms_brand_nav">
@@ -38,26 +47,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">XXX公司LOGO</a>
+                    <a class="navbar-brand" href="#">XXX公司</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="hrms-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">公司介绍 <span class="sr-only">(current)</span>  </a>
-                        </li>
-                        <li><a href="#">人力资源部</a></li>
-                        <li><a href="#">请假申请</a></li>
-                        <li><a href="#">报销申请</a></li>
-                        <li><a href="#">出勤记录</a></li>
-                    </ul>
-
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="站内搜索">
-                        </div>
-                        <button type="submit" class="btn btn-default">搜索</button>
-                    </form>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
