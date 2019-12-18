@@ -75,8 +75,7 @@
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept1">
                         <li role="presentation"><a href="/dlist/clookDList">发货</a></li>
-                        <li role="presentation"><a href="/slist/add">进货</a></li>
-                        <li role="presentation"><a href="/slist/looksList">进货单信息</a></li>
+                        <li role="presentation"><a href="/slist/looksList">进货</a></li>
                     </ul>
                 </li>
             </ul>
@@ -99,19 +98,19 @@
 
                         <div class="carousel-inner" role="listbox">
                             <div class="item active" style="text-align: center;">
-                                <img class="img-responsive center-block" src="C:\Users\Administrator\Desktop\company1.jpg" alt="company1">
+                                <img class="img-responsive center-block" src="/public/company.jpg" alt="company1">
                                 <div class="carousel-caption">
                                     <h3>漂亮大气的办公楼</h3>
                                 </div>
                             </div>
                             <div class="item">
-                                <img class="img-responsive center-block" src="C:\Users\Administrator\Desktop\company2.jpg" alt="company1">
+                                <img class="img-responsive center-block" src="/public/company2.jpg" alt="company1">
                                 <div class="carousel-caption">
                                     <h3>休闲的放松场所</h3>
                                 </div>
                             </div>
                             <div class="item">
-                                <img class="img-responsive center-block" src="C:\Users\Administrator\Desktop\company3.jpg" alt="company1">
+                                <img class="img-responsive center-block" src="/public/company3.jpg" alt="company1">
                                 <div class="carousel-caption">
                                     <h3>舒适的办公环境</h3>
                                 </div>

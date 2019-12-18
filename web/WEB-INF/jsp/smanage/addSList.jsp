@@ -63,26 +63,51 @@
 
         <!-- 左侧栏 -->
         <div class="panel-group col-sm-2" id="hrms_sidebar_left" role="tablist" aria-multiselectable="true">
-            <ul class="nav nav-pills nav-stacked dept_sidebar">
+            <ul class="nav nav-pills nav-stacked emp_sidebar">
                 <li role="presentation" class="active">
-                    <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
-                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">商品管理</span>
+                    <a href="#" data-toggle="collapse" data-target="#collapse_emp">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">员工管理</span>
                     </a>
-                    <ul class="nav nav-pills nav-stacked" id="collapse_dept">
-                        <li role="presentation"><a href="/goods/lookGoods">商品信息</a></li>
-                        <li role="presentation"><a href="/goods/add">商品新增</a></li>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_emp">
+                        <li role="presentation"><a href="/sales/employee">员工信息</a></li>
+                        <li role="presentation"><a href="/sales/add">员工新增</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked emp_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#" data-toggle="collapse" data-target="#collapse_kh">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_kh">
+                        <li role="presentation"><a href="#">客户信息</a></li>
+                        <li role="presentation"><a href="/client/add">客户新增</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav nav-pills nav-stacked dept_sidebar">
                 <li role="presentation" class="active">
                     <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
-                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">货物管理</span>
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">合同管理</span>
                     </a>
-                    <ul class="nav nav-pills nav-stacked" id="collapse_dept1">
-                        <li role="presentation"><a href="/dlist/clookDList">发货</a></li>
-                        <li role="presentation"><a href="#">进货</a></li>
-                        <li role="presentation"><a href="/slist/looksList">进货单信息</a></li>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_dept">
+                        <li role="presentation"><a href="/contract/lookContract">合同信息</a></li>
+                        <li role="presentation"><a href="/contract/add">合同新增</a></li>
+                        <li role="presentation"><a href="/orders/lookOrders">查看订单</a></li>
+                        <li role="presentation"><a href="/dlist/lookDList">查看发货单</a></li>
+                        <li role="presentation"><a href="/slist/add">添加进货单</a></li>
+                        <li role="presentation"><a href="/slist/slooksList">查看进货单</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-pills nav-stacked dept_sidebar">
+                <li role="presentation" class="active">
+                    <a href="#"  data-toggle="collapse" data-target="#collapse_dept">
+                        <span class="glyphicon glyphicon-cloud" aria-hidden="true">销售总额查看</span>
+                    </a>
+                    <ul class="nav nav-pills nav-stacked" id="collapse_sales">
+                        <li role="presentation"><a href="/sales/lookGSales">商品销售总额</a></li>
+                        <li role="presentation"><a href="/sales/lookCSales">客户销售总额</a></li>
                     </ul>
                 </li>
             </ul>

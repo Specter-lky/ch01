@@ -8,6 +8,9 @@
         select * from stock_list where sl_no=#{sl_no}
     </select>
     <insert id="addSList" parameterType="com.pojo.SList">
-        insert into stock_list(g_name, sl_num, sl_price) values (#{g_name},#{sl_num},#{sl_price})
+        insert into stock_list(g_name, sl_num, sl_price,sl_status) values (#{g_name},#{sl_num},#{sl_price},#{sl_status})
     </insert>
+    <update id="updateSList" parameterType="com.pojo.SList">
+        update stock_list set g_name=#{g_name},sl_num=#{sl_num},sl_price=#{sl_price},sl_status=#{sl_status} where sl_no=#{sl_no}
+    </update>
 </mapper>

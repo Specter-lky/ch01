@@ -28,13 +28,20 @@ public class SListController {
         session.setAttribute("allSList",list);
         return "cmanage/lookSList";
     }
+    @RequestMapping("slooksList")
+    public String slookDList(HttpServletRequest request, HttpServletResponse response){
+        List<SList> list=sListDao.selectAllSList();
+        HttpSession session=request.getSession(true);
+        session.setAttribute("allSList",list);
+        return "smanage/lookSList";
+    }
     @RequestMapping("add")
     public String add(HttpServletRequest request, HttpServletResponse response)
     {
         HttpSession session=request.getSession(true);
         List<Goods> goods=goodsDao.selectAllGoods();
         session.setAttribute("allGoods",goods);
-        return "cmanage/addSList";
+        return "smanage/addSList";
     }
     @RequestMapping("addSList")
     public String addSList(HttpServletRequest request, HttpServletResponse response){
@@ -47,8 +54,21 @@ public class SListController {
         String gname=request.getParameter("gname");
         int slnum=Integer.parseInt(request.getParameter("slnum"));
         Goods goods=goodsDao.selectOneGoods(gname);
-        SList add=new SList(1,gname,slnum,goods.getG_bprice());
+        SList add=new SList(1,gname,slnum,goods.getG_bprice(),0);
         sListDao.addSList(add);
+        List<SList> list=sListDao.selectAllSList();
+        HttpSession session=request.getSession(true);
+        session.setAttribute("allSList",list);
+        return "smanage/lookSList";
+    }
+    @RequestMapping("stockgoods")
+    public String stockgoods(HttpServletRequest request, HttpServletResponse response){
+        int slno=Integer.parseInt(request.getParameter("slno"));
+        SList sList=sListDao.selectOneSList(slno);
+        sList.setSl_status(1);
+        sListDao.updateSList(sList);
+        int slnum=sList.getSl_num();
+        Goods goods=goodsDao.selectOneGoods(sList.getG_name());
         int total=slnum+goods.getG_num();
         goods.setG_num(total);
         goodsDao.updateGoods(goods);

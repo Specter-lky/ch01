@@ -5,12 +5,14 @@ public class SList {
     private String g_name;
     private int sl_num;
     private double sl_price;
+    private int sl_status;
 
-    public SList(int sl_no, String g_name, int sl_num, double sl_price) {
+    public SList(int sl_no, String g_name, int sl_num, double sl_price,int sl_status) {
         this.sl_no = sl_no;
         this.g_name = g_name;
         this.sl_num = sl_num;
         this.sl_price = sl_price;
+        this.sl_status=sl_status;
     }
 
     public int getSl_no() {
@@ -43,5 +45,13 @@ public class SList {
 
     public void setSl_price(double sl_price) {
         this.sl_price = sl_price;
+    }
+
+    public int getSl_status() {
+        return sl_status;
+    }
+
+    public void setSl_status(int sl_status) {
+        this.sl_status = sl_status;
     }
 }

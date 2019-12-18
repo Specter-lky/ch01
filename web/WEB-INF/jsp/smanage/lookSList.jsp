@@ -1,8 +1,10 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="javax.swing.*" %>
+<%@ page import="com.pojo.SList" %><%--
   Created by IntelliJ IDEA.
   User: Specter
-  Date: 2019/11/28
-  Time: 22:10
+  Date: 2019/12/7
+  Time: 22:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>销售管理员主页面</title>
+    <title>进货单信息</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
@@ -21,6 +23,8 @@
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+    </script>
 </head>
 <body>
 <div class="hrms_container">
@@ -37,7 +41,9 @@
                     </button>
                     <a class="navbar-brand" href="#">XXX公司</a>
                 </div>
+
                 <div class="collapse navbar-collapse" id="hrms-navbar-collapse-1">
+
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">账号管理 <span class="caret"></span></a>
@@ -62,17 +68,17 @@
                         <span class="glyphicon glyphicon-user" aria-hidden="true">员工管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_emp">
-                        <li role="presentation"><a href="/sales/employee">员工信息</a></li>
+                        <li role="presentation"><a href="#">员工信息</a></li>
                         <li role="presentation"><a href="/sales/add">员工新增</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav nav-pills nav-stacked emp_sidebar">
                 <li role="presentation" class="active">
-                    <a href="#" data-toggle="collapse" data-target="#collapse_emp">
+                    <a href="#" data-toggle="collapse" data-target="#collapse_kh">
                         <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
                     </a>
-                    <ul class="nav nav-pills nav-stacked" id="collapse_cli">
+                    <ul class="nav nav-pills nav-stacked" id="collapse_kh">
                         <li role="presentation"><a href="/client/lookClient">客户信息</a></li>
                         <li role="presentation"><a href="/client/add">客户新增</a></li>
                     </ul>
@@ -89,7 +95,7 @@
                         <li role="presentation"><a href="/orders/lookOrders">查看订单</a></li>
                         <li role="presentation"><a href="/dlist/lookDList">查看发货单</a></li>
                         <li role="presentation"><a href="/slist/add">添加进货单</a></li>
-                        <li role="presentation"><a href="/slist/slooksList">查看进货单</a></li>
+                        <li role="presentation"><a href="#">查看进货单</a></li>
                     </ul>
                 </li>
             </ul>
@@ -106,55 +112,89 @@
             </ul>
         </div><!-- /.panel-group，#hrms_sidebar_left -->
 
-        <!-- 中心展示内容 -->
-        <div class="hrms_main_ad col-sm-10">
+        <!-- 中间员工表格信息展示内容 -->
+        <div class="emp_info col-sm-10">
+
             <div class="panel panel-success">
+                <!-- 路径导航 -->
                 <div class="panel-heading">
-                    <h3 style="text-align: center;">欢迎进入XXX公司人力资源管理系统！</h3>
+                    <ol class="breadcrumb">
+                        <li><a href="#">货物管理</a></li>
+                        <li class="active">进货单信息</li>
+                    </ol>
                 </div>
-                <div class="panel-body" style="position:relative; top:-15px;">
-                    <div id="hrms_carousel_1" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#hrms_carousel_1" data-slide-to="0" class="active"></li>
-                            <li data-target="#hrms_carousel_1" data-slide-to="1"></li>
-                            <li data-target="#hrms_carousel_1" data-slide-to="2"></li>
-                        </ol>
+                <!-- Table -->
+                <table class="table table-bordered table-hover" id="emp_table">
+                    <thead>
+                    <th>进货单单号</th>
+                    <th>商品名称</th>
+                    <th>进货数量</th>
+                    <th>进货单价</th>
+                    <th>总额</th>
+                    <th>状态</th>
+                    </thead>
+                    <tbody>
+                    <%
+                        List<SList> list=(List)session.getAttribute("allSList");
+                        if (list==null||list.size()==0){
+                            String msg = "暂无进货单！";
+                            int type = JOptionPane.YES_NO_CANCEL_OPTION;
+                            String title = "信息提示";
+                            JOptionPane.showMessageDialog(null, msg, title, type);
+                        }
+                        else{
+                            for(SList s : list){
+                                double total=s.getSl_num()*s.getSl_price();
+                                String status="";
+                                if (s.getSl_status()==0)status="未进货";
+                                else status="已进货";
+                    %>
+                    <tr>
+                        <td><%=s.getSl_no()%></td>
+                        <td><%=s.getG_name()%></td>
+                        <td><%=s.getSl_num()%></td>
+                        <td><%=s.getSl_price()%></td>
+                        <td><%=total%></td>
+                        <td><%=status%></td>
+                    </tr>
+                    <%
+                            }
+                        }
+                    %>
+                    </tbody>
+                </table>
 
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active" style="text-align: center;">
-                                <img class="img-responsive center-block" src="/public/company.jpg" alt="company1">
-                                <div class="carousel-caption">
-                                    <h3>漂亮大气的办公楼</h3>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive center-block" src="/public/company2.jpg" alt="company1">
-                                <div class="carousel-caption">
-                                    <h3>休闲的放松场所</h3>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img class="img-responsive center-block" src="/public/company3.jpg" alt="company1">
-                                <div class="carousel-caption">
-                                    <h3>舒适的办公环境</h3>
-                                </div>
-                            </div>
-                        </div>
+                <div class="panel-body">
+                    <div class="table_items">
+                        当前第<span class="badge">1</span>页，共有<span class="badge">10</span>页，总记录数<span class="badge">100</span>条。
+                    </div>
+                    <nav aria-label="Page navigation" class="pull-right">
+                        <ul class="pagination">
+                            <li><a href="#">首页</a></li>
+                            <li class="disabled">
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">尾页</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div><!-- /.panel panel-success -->
+        </div><!-- /.emp_info -->
 
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#chrms_carousel_1" role="button" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="right carousel-control" href="#hrms_carousel_1" role="button" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div><!-- /#hrms_carousel_1 -->
 
-                </div><!-- /.panel-body -->
-            </div><!-- /.panel -->
-        </div><!-- /.hrms_main_ad -->
+
     </div><!-- /.hrms_body -->
 
 

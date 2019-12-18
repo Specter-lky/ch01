@@ -95,6 +95,8 @@
                         <li role="presentation"><a href="/contract/add">合同新增</a></li>
                         <li role="presentation"><a href="/orders/lookOrders">查看订单</a></li>
                         <li role="presentation"><a href="/dlist/lookDList">查看发货单</a></li>
+                        <li role="presentation"><a href="/slist/add">添加进货单</a></li>
+                        <li role="presentation"><a href="/slist/slooksList">查看进货单</a></li>
                     </ul>
                 </li>
             </ul>
@@ -131,6 +133,7 @@
                     <th>销售员姓名</th>
                     <th>客户姓名</th>
                     <th>签订日期</th>
+                    <th>履行状态</th>
                     <th>操作</th>
                     </thead>
                     <tbody>
@@ -146,19 +149,31 @@
                         else{
                             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                             String str1 = format.format(c.getCt_date());
+                            String status="";
+                            if (c.getCt_status()==0)status="未履行";
+                            else if(c.getCt_status()==1)status="履行中";
+                            else status="已完成";
                     %>
                     <tr>
                         <td><%=c.getCt_no()%></td>
                         <td><%=c.getS_name()%></td>
                         <td><%=c.getC_name()%></td>
                         <td><%=str1%></td>
+                        <td><%=status%></td>
                         <td>
-                            <a href="#" role="button" class="btn btn-primary">编辑</a>
+                            <%
+                                if (c.getCt_status()==0){
+                            %>
+                            <a href="/contract/update?ctno=<%=c.getCt_no()%>" role="button" class="btn btn-primary">编辑</a>
+                            <%}
+                            else{
+                            %>
+                            <a href="/contract/lookContractOrders?ctno=<%=c.getCt_no()%>" role="button" class="btn btn-primary">详情</a>
+                            <%}
+                            }
+                            %>
                         </td>
                     </tr>
-                    <%
-                        }
-                    %>
                     </tbody>
                 </table>
             </div><!-- /.panel panel-success -->

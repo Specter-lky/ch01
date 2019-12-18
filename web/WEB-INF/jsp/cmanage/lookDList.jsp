@@ -88,9 +88,7 @@
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept1">
                         <li role="presentation"><a href="/dlist/clookDList">发货</a></li>
-                        <li role="presentation"><a href="/slist/add">进货</a></li>
-                        <li role="presentation"><a href="/slist/looksList">进货单信息</a></li>
-
+                        <li role="presentation"><a href="/slist/looksList">进货</a></li>
                     </ul>
                 </li>
             </ul>

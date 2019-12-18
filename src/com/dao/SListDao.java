@@ -12,4 +12,5 @@ public interface SListDao {
     public List<SList> selectAllSList();
     public SList selectOneSList(int slno);
     public int addSList(SList sList);
+    public int updateSList(SList sList);
 }

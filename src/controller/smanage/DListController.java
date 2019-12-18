@@ -80,7 +80,7 @@ public class DListController {
         double gprice=Double.parseDouble(request.getParameter("gprice"));
         int dlnum=Integer.parseInt(request.getParameter("dlnum"));
         String dlplace=request.getParameter("dlplace");
-        //添加订单，状态是未发货
+        //添加发货单，状态是未发货
         DList add=new DList(1,ono,gname,gprice,dlnum,0,dlplace);
         dListDao.addDList(add);
         List<DList> list=dListDao.selectAllDList();

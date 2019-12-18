@@ -104,6 +104,8 @@
                         <li role="presentation"><a href="/contract/add">合同新增</a></li>
                         <li role="presentation"><a href="/orders/lookOrders">查看订单</a></li>
                         <li role="presentation"><a href="/dlist/lookDList">查看发货单</a></li>
+                        <li role="presentation"><a href="/slist/add">添加进货单</a></li>
+                        <li role="presentation"><a href="/slist/slooksList">查看进货单</a></li>
                     </ul>
                 </li>
             </ul>

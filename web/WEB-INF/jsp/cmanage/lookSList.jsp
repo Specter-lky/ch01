@@ -80,8 +80,7 @@
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_dept1">
                         <li role="presentation"><a href="/dlist/clookDList">发货</a></li>
-                        <li role="presentation"><a href="/slist/add">进货</a></li>
-                        <li role="presentation"><a href="#">进货单信息</a></li>
+                        <li role="presentation"><a href="#">进货</a></li>
                     </ul>
                 </li>
             </ul>
@@ -106,6 +105,8 @@
                     <th>进货数量</th>
                     <th>进货单价</th>
                     <th>总额</th>
+                    <th>状态</th>
+                    <th>操作</th>
                     </thead>
                     <tbody>
                     <%
@@ -119,6 +120,9 @@
                         else{
                             for(SList s : list){
                                 double total=s.getSl_num()*s.getSl_price();
+                                String status="";
+                                if (s.getSl_status()==0)status="未进货";
+                                else status="已进货";
                     %>
                     <tr>
                         <td><%=s.getSl_no()%></td>
@@ -126,6 +130,16 @@
                         <td><%=s.getSl_num()%></td>
                         <td><%=s.getSl_price()%></td>
                         <td><%=total%></td>
+                        <td><%=status%></td>
+                        <td>
+                        <%
+                            if (s.getSl_status()==0){
+                                %>
+                        <a href="/slist/stockgoods?slno=<%=s.getSl_no()%>" role="button" class="btn btn-primary">进货</a>
+                        <%
+                            }
+                        %>
+                        </td>
                     </tr>
                     <%
                             }

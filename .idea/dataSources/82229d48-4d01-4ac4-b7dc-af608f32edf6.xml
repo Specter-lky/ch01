@@ -861,6 +861,8 @@
     <column id="219" parent="206" name="c_name">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="220" parent="206" name="ct_date">
@@ -1003,6 +1005,7 @@ g_name</ColNames>
       <Position>5</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="245" parent="209" name="o_status">
@@ -1094,33 +1097,38 @@ g_name</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="261" parent="211" name="g_name">
+    <column id="261" parent="211" name="sl_status">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="262" parent="211" name="g_name">
       <ColNames>g_name</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="262" parent="211" name="PRIMARY">
+    <key id="263" parent="211" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sl_no
 g_name</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="263" parent="212" name="username">
+    <column id="264" parent="212" name="username">
       <Position>1</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="212" name="password">
+    <column id="265" parent="212" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="212" name="identity">
+    <column id="266" parent="212" name="identity">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="266" parent="212" name="PRIMARY">
+    <key id="267" parent="212" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Primary>1</Primary>
