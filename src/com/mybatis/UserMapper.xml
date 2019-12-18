@@ -4,7 +4,4 @@
     <select id="login" parameterType="com.pojo.User" resultType="com.pojo.User">
         select * from user where username=#{username} and password=#{password} and identity=#{identity}
     </select>
-    <select id="check" parameterType="String" resultType="com.pojo.User">
-        select * from user where username=#{username}
-    </select>
 </mapper>

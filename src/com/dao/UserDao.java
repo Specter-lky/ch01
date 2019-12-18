@@ -11,5 +11,4 @@ import java.util.List;
 @Mapper
 public interface UserDao {
     public User login(User user);
-    public User check(String username);
 }
