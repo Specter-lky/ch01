@@ -116,7 +116,7 @@
                 <!-- 路径导航 -->
                 <div class="panel-heading">
                     <ol class="breadcrumb">
-                        <li><a href="#">员工管理</a></li>
+                        <li><a href="/sales/employee">员工管理</a></li>
                         <li class="active">
                             员工信息
                         </li>
@@ -159,7 +159,6 @@
                     %>
                     </tbody>
                 </table>
-                <input type="">
             </div><!-- /.panel panel-success -->
         </div><!-- /.emp_info -->
 

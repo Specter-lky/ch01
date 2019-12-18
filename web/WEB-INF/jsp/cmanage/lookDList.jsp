@@ -106,9 +106,9 @@
                     <ol class="breadcrumb">
                         <li><a href="#">发货单管理</a></li>
                         <li class="active">发货单信息</li>
-                        <form action="#">
+                        <form action="/dlist/lookoneDList">
                             <div>
-                                <input type="text" name="name" required="required" placeholder="输入需查找的发货单号">
+                                <input type="text" name="dlno" required="required" placeholder="输入需查找的发货单号" onkeyup="this.value=this.value.replace(/\D/g, '')">
                                 <button type="submit">查找</button>
                             </div>
                         </form>

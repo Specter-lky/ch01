@@ -1,13 +1,14 @@
-<%--
+<%@ page import="com.pojo.Orders" %>
+<%@ page import="java.util.List" %>
+<%@ page import="javax.swing.*" %>
+<%@ page import="org.aspectj.weaver.ast.Or" %><%--
   Created by IntelliJ IDEA.
   User: Specter
-  Date: 2019/12/4
-  Time: 22:01
+  Date: 2019/12/5
+  Time: 23:08
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page import="com.pojo.Orders"%>
-<%@ page import="javax.swing.*" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -15,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>查看单个客户</title>
+    <title>合同详细信息</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
@@ -117,9 +118,13 @@
                 <div class="panel-heading">
                     <ol class="breadcrumb">
                         <li><a href="/orders/lookOrders">订单管理</a></li>
-                        <li class="active">
-                            订单信息
-                        </li>
+                        <li class="active">订单信息</li>
+                        <form action="/orders/lookoneOrders">
+                            <div>
+                                <input type="text" name="ono" required="required" placeholder="输入需查找的订单号" onkeyup="this.value=this.value.replace(/\D/g, '')">
+                                <button type="submit">查找</button>
+                            </div>
+                        </form>
                     </ol>
                 </div>
                 <!-- Table -->
@@ -136,26 +141,26 @@
                     </thead>
                     <tbody>
                     <%
-                        Orders o=(Orders) session.getAttribute("one");
-                        if(o==null) {
-                            String msg = "该订单不存在！";
+                        List<Orders> list=(List)session.getAttribute("orders");
+                        if (list==null||list.size()==0){
+                            String msg = "暂无订单！";
                             int type = JOptionPane.YES_NO_CANCEL_OPTION;
                             String title = "信息提示";
                             JOptionPane.showMessageDialog(null, msg, title, type);
-                            response.sendRedirect("http://localhost:8080/orders/lookOrders");
                         }
                         else{
-                            double total=o.getO_num()*o.getG_price();
-                            String status=null;
-                            if (o.getO_status()==0){
-                                status="未执行";
-                            }
-                            else if(o.getO_status()==1){
-                                status="执行中";
-                            }
-                            else {
-                                status="已完成";
-                            }
+                            for(Orders o : list){
+                                double total=o.getO_num()*o.getG_price();
+                                String status=null;
+                                if (o.getO_status()==0){
+                                    status="未执行";
+                                }
+                                else if(o.getO_status()==1){
+                                    status="执行中";
+                                }
+                                else {
+                                    status="已完成";
+                                }
                     %>
                     <tr>
                         <td><%=o.getO_no()%></td>
@@ -176,17 +181,41 @@
                         </td>
                     </tr>
                     <%
+                            }
                         }
                     %>
                     </tbody>
                 </table>
+
+                <div class="panel-body">
+                    <div class="table_items">
+                        当前第<span class="badge">1</span>页，共有<span class="badge">10</span>页，总记录数<span class="badge">100</span>条。
+                    </div>
+                    <nav aria-label="Page navigation" class="pull-right">
+                        <ul class="pagination">
+                            <li><a href="#">首页</a></li>
+                            <li class="disabled">
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">尾页</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div><!-- /.panel panel-success -->
         </div><!-- /.emp_info -->
-
-
-
     </div><!-- /.hrms_body -->
-
 
     <!-- 尾部 -->
     <div class="hrms_footer" style="text-align: center;">

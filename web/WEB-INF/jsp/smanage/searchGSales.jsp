@@ -117,7 +117,7 @@
                 <!-- 路径导航 -->
                 <div class="panel-heading">
                     <ol class="breadcrumb">
-                        <li><a href="#">销售额查看</a></li>
+                        <li><a href="/sales/lookGSales">销售额查看</a></li>
                         <li class="active">订单信息</li>
                     </ol>
                 </div>

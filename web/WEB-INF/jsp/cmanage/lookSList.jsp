@@ -94,14 +94,8 @@
                 <!-- 路径导航 -->
                 <div class="panel-heading">
                     <ol class="breadcrumb">
-                        <li><a href="#">商品管理</a></li>
-                        <li class="active">商品信息</li>
-                        <form action="/goods/lookoneGoods">
-                            <div>
-                                <input type="text" name="name" required="required" placeholder="输入需查找的商品名称">
-                                <button type="submit">查找</button>
-                            </div>
-                        </form>
+                        <li><a href="#">货物管理</a></li>
+                        <li class="active">进货单信息</li>
                     </ol>
                 </div>
                 <!-- Table -->

@@ -95,8 +95,8 @@
                 <!-- 路径导航 -->
                 <div class="panel-heading">
                     <ol class="breadcrumb">
-                        <li><a href="/goods/lookGoods">商品管理</a></li>
-                        <li class="active">商品新增</li>
+                        <li><a href="#">货物管理</a></li>
+                        <li class="active">进货</li>
                     </ol>
                 </div>
             </div><!-- /.panel panel-success -->

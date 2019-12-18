@@ -47,6 +47,14 @@ public class DListController {
         session.setAttribute("allDList",list);
         return "cmanage/lookDList";
     }
+    @RequestMapping("lookoneDList")
+    public String lookoneDList(HttpServletRequest request, HttpServletResponse response){
+        int dlno=Integer.parseInt(request.getParameter("dlno"));
+        DList one=dListDao.selectoneDList(dlno);
+        HttpSession session=request.getSession(true);
+        session.setAttribute("one",one);
+        return "cmanage/lookoneDList";
+    }
     @RequestMapping("add")
     public String add(HttpServletRequest request, HttpServletResponse response){
         int ono=Integer.parseInt(request.getParameter("ono"));

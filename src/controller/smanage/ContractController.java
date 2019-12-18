@@ -5,9 +5,11 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dao.*;
 import com.pojo.*;
+import org.aspectj.weaver.ast.Or;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,10 +40,12 @@ public class ContractController {
     @Resource
     private OrdersDao ordersDao;
     @RequestMapping("lookContract")
-    public String lookContract(HttpServletRequest request, HttpServletResponse response){
+    public String lookContract(HttpServletRequest request, HttpServletResponse response, Model model){
         HttpSession session=request.getSession(true);
         List<Contract> list=contractDao.selectAllContract();
+        List<Orders> orders=ordersDao.selectAllOrders();
         session.setAttribute("allContract",list);
+        session.setAttribute("allorders",orders);
         return "smanage/lookContract";
     }
     @RequestMapping("lookoneContract")
@@ -57,6 +61,14 @@ public class ContractController {
         HttpSession session=request.getSession(true);
         session.setAttribute("one",one);
         return "smanage/lookoneContract";
+    }
+    @RequestMapping("lookContractOrders")
+    public String lookContractOrders(HttpServletRequest request, HttpServletResponse response){
+        int ctno=Integer.parseInt(request.getParameter("ctno"));
+        List<Orders> orders=ordersDao.selectContractOrders(ctno);
+        HttpSession session=request.getSession(true);
+        session.setAttribute("orders",orders);
+        return "smanage/lookContractOrders";
     }
     @RequestMapping("add")
     public String add(HttpServletRequest request, HttpServletResponse response){

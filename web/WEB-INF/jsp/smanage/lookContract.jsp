@@ -81,7 +81,7 @@
                         <span class="glyphicon glyphicon-user" aria-hidden="true">客户管理</span>
                     </a>
                     <ul class="nav nav-pills nav-stacked" id="collapse_kh">
-                        <li role="presentation"><a href="#">客户信息</a></li>
+                        <li role="presentation"><a href="/client/lookClient">客户信息</a></li>
                         <li role="presentation"><a href="/client/add">客户新增</a></li>
                     </ul>
                 </li>
@@ -171,7 +171,7 @@
                             <%}
                                 else{
                             %>
-                            <a href="#" role="button" class="btn btn-primary">详情</a>
+                            <a href="/contract/lookContractOrders?ctno=<%=c.getCt_no()%>" role="button" class="btn btn-primary">详情</a>
                             <%}
                             }
                             %>
@@ -212,7 +212,6 @@
             </div><!-- /.panel panel-success -->
         </div><!-- /.emp_info -->
     </div><!-- /.hrms_body -->
-
     <!-- 尾部 -->
     <div class="hrms_footer" style="text-align: center;">
         <address>

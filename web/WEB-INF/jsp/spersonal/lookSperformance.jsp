@@ -86,8 +86,8 @@
                 <!-- 路径导航 -->
                 <div class="panel-heading">
                     <ol class="breadcrumb">
-                        <li><a href="#">合同管理</a></li>
-                        <li class="active">合同信息</li>
+                        <li><a href="#">销售额信息</a></li>
+                        <li class="active">订单信息</li>
                     </ol>
                     <form action="/sales/searchSperformance" onsubmit="return submit_from()">
                         <div>

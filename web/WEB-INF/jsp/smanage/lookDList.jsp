@@ -118,12 +118,6 @@
                     <ol class="breadcrumb">
                         <li><a href="#">发货单管理</a></li>
                         <li class="active">发货单信息</li>
-                        <form action="#">
-                            <div>
-                                <input type="text" name="name" required="required" placeholder="输入需查找的发货单号">
-                                <button type="submit">查找</button>
-                            </div>
-                        </form>
                     </ol>
                 </div>
                 <!-- Table -->
